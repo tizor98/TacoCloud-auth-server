@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "46ecf68c-46ef-4e85-ba1c-48ab02e67b39",
+		"name": "taco-cloud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24931707"
+	},
+	"item": [
+		{
+			"name": "Request JWT",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "secret",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "taco-admin-client",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://127.0.0.1:9000/login/oauth2/code/taco-admin-client",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9000/oauth2/token",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Ingredients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://127.0.0.1:8443/api/ingredients",
+					"protocol": "https",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"ingredients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Ingredient",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiIxOWVjMzQxYS0yNzg1LTRkNjUtODViMy0zZGI3NGRiYzFhZDYiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJBbGJlcnRvIiwiYXVkIjoidGFjby1hZG1pbi1jbGllbnQiLCJuYmYiOjE2NzYyNTM1NjYsInNjb3BlIjpbImRlbGV0ZUluZ3JlZGllbnRzIiwid3JpdGVJbmdyZWRpZW50cyJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkwMDAiLCJleHAiOjE2NzYyNTM4NjYsImlhdCI6MTY3NjI1MzU2Nn0.elAQpncYozomCfmX1cCqrxmpQDzmifjHBCJQ6CEUkyRzU4joGeBFFRGYNV8MIpU1AAZ9vLpxZYiJlwHJvmIQ2v4A3W6iWPxCRQx4S5IQB2NalvO76T3JMv2cJMBPKDh0q7VNKRDUvs_sCoiAo_comTe9ByPQgvzi4iDBVLvUWEAir1wtDlq2fotOGhwHz3ybkcPPVXAA4TOwUO7REui17ifkx6RtGY4uFm73W7lPQkQw56gmipA0m-ZPfkBWzZ8xQ3rFrUU4pm0MCQAJjSeZ3z-JUEof1iSnon1o-siNSyHoPI-apiETr4ib2IOSuTSYTOPzTnQQFXw_H4YmP4sC9g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"NOTA\",\r\n    \"name\": \"A la colombiana\",\r\n    \"type\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://127.0.0.1:8443/api/ingredients",
+					"protocol": "https",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"ingredients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Ingredient",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiIxOWVjMzQxYS0yNzg1LTRkNjUtODViMy0zZGI3NGRiYzFhZDYiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJBbGJlcnRvIiwiYXVkIjoidGFjby1hZG1pbi1jbGllbnQiLCJuYmYiOjE2NzYyNTM1NjYsInNjb3BlIjpbImRlbGV0ZUluZ3JlZGllbnRzIiwid3JpdGVJbmdyZWRpZW50cyJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkwMDAiLCJleHAiOjE2NzYyNTM4NjYsImlhdCI6MTY3NjI1MzU2Nn0.elAQpncYozomCfmX1cCqrxmpQDzmifjHBCJQ6CEUkyRzU4joGeBFFRGYNV8MIpU1AAZ9vLpxZYiJlwHJvmIQ2v4A3W6iWPxCRQx4S5IQB2NalvO76T3JMv2cJMBPKDh0q7VNKRDUvs_sCoiAo_comTe9ByPQgvzi4iDBVLvUWEAir1wtDlq2fotOGhwHz3ybkcPPVXAA4TOwUO7REui17ifkx6RtGY4uFm73W7lPQkQw56gmipA0m-ZPfkBWzZ8xQ3rFrUU4pm0MCQAJjSeZ3z-JUEof1iSnon1o-siNSyHoPI-apiETr4ib2IOSuTSYTOPzTnQQFXw_H4YmP4sC9g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://127.0.0.1:8443/api/ingredients/FLTO",
+					"protocol": "https",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"ingredients",
+						"FLTO"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

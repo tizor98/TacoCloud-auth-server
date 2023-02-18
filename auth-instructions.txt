@@ -1,0 +1,8 @@
+1. Enter to: localhost:9000/oauth2/authorize?response_type=code&client_id=taco-admin-client&redirect_uri=http://127.0.0.1:9000/login/oauth2/code/taco-admin-client&scope=writeIngredients+deleteIngredients
+
+And provide one of the usernames with password (e.g. u: Alberto, p: password).
+
+2. With the code generated in the url use the postman collection to ask for jwt.
+Introduce the code in field code of the body request.
+
+3. Use the jwt token to make request in the other collection methods.
